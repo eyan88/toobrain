@@ -1,17 +1,13 @@
 import { useState } from 'react';
-import { MdDeleteForever } from 'react-icons/md';
 import { Button } from '@mui/material';
-import {Editor, EditorState, ContentState } from 'draft-js';
+import { EditorState } from 'draft-js';
 import 'draft-js/dist/Draft.css';
+import MyEditor from './MyEditor';
 
 const AddNote = ({ handleAddNote }) => {
     const [editorState, setEditorState] = useState(() => 
         EditorState.createEmpty(),
     );
-    
-    const handleChange = (event) => {
-
-    }
 
     const handleSaveClick = () => {
         if(editorState.getCurrentContent().getPlainText().length > 0) {
@@ -22,14 +18,15 @@ const AddNote = ({ handleAddNote }) => {
     return (
         <div className='note new'>
             <div className='editor-container'>
-                <Editor 
-                    placeholder='New note...' 
+                <MyEditor 
                     editorState={editorState} 
-                    onChange={setEditorState} 
+                    setEditorState={setEditorState}
                 />
             </div>
             <div className='note-footer'>
-                    
+                    <small>
+
+                    </small>
                     <Button variant='contained' size='small' onClick={handleSaveClick}>
                         Save
                     </Button>

@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+.header-container {
+  
+}
+
 .container {
   max-width: 960px;
   margin-right: auto;

@@ -8,7 +8,7 @@ const NotesList = ({ notes, handleAddNote, handleDeleteNote }) => {
             {notes.map((note, index) => (
                 <Grid item key={index} > 
                     <Note 
-                        id={note.id}
+                        note={note}
                         text={note.text}
                         date={note.date}
                         handleDeleteNote={handleDeleteNote}

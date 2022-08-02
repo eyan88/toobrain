@@ -1,7 +1,7 @@
 import { MdDeleteForever } from 'react-icons/md';
 import {Card, Button } from '@mui/material';
 
-const Note = ({ id, text, date, handleDeleteNote }) => {
+const Note = ({ note, text, date, handleDeleteNote }) => {
     return (
         <Card>
             <div className='note'>
@@ -15,7 +15,7 @@ const Note = ({ id, text, date, handleDeleteNote }) => {
                         variant='contained'
                         size='small' 
                         color='error'
-                        onClick={() => handleDeleteNote(id)}
+                        onClick={() => handleDeleteNote(note.id) }
                      >
                         <MdDeleteForever 
                             className='delete-icon' 

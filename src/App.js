@@ -1,46 +1,49 @@
-import NotesList from "./components/NotesList";
-import { useState } from 'react';
+import NotesList from './components/NotesList';
+import Header from './components/Header';
+import { useState, useEffect } from 'react';
 import { nanoid } from 'nanoid';
+import { db } from './firebase';
+import { query, collection, onSnapshot, addDoc, deleteDoc, doc } from 'firebase/firestore';
 
 const App = () => {
+
   const [notes, setNotes] = useState([
-    {
-      id: nanoid(),
-      text: "This is my first note",
-      date: "07/30/2022"
-    },
-    {
-      id: nanoid(),
-      text: "This is my second note",
-      date: "07/31/2022"
-    },
-    {
-      id: nanoid(),
-      text: "This is my third note",
-      date: "07/31/2022"
-    },
   ]);
 
-  const addNote = (text) => {
+
+  // read notes
+  useEffect(() => {
+    const q = query(collection(db, 'notes'))
+    const unsubscribe = onSnapshot(q, (querySnapshot) => {
+      const notesArr = []
+      querySnapshot.forEach((doc) => {
+        notesArr.push({...doc.data(), id: doc.id});
+      });
+      // it is bad to mutate state in react
+      setNotes(notesArr);
+    })
+    return () => unsubscribe;
+  },[])
+
+  const addNote = async (text) => {
+
     const date = new Date();
     const newNote = {
-      id: nanoid(),
       text: text,
       date: date.toLocaleDateString()
     }
-    // it is bad to mutate state in react - this line creates a new array
-    // instead of updating the old array
-    const newNotes = [...notes, newNote]
-    setNotes(newNotes);
+
+    await addDoc(collection(db, 'notes'), newNote)
   }
 
-  const deleteNote = (id) => {
-    const newNotes = notes.filter((note) => note.id !== id)
-    setNotes(newNotes);
+  const deleteNote = async (id) => {
+    console.log(id);
+    await deleteDoc(doc(db, 'notes', id))
   }
 
   return (
     <div className='container'>
+      <Header />
       <NotesList 
         notes={notes} 
         handleAddNote={addNote} 
