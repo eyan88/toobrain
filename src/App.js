@@ -1,15 +1,13 @@
-import NotesList from './components/NotesList';
-import Header from './components/Header';
-import { useState, useEffect } from 'react';
+import NotesList from "./components/NotesList";
+import Header from "./components/Header";
 import { nanoid } from 'nanoid';
-import { db } from './firebase';
-import { query, collection, onSnapshot, addDoc, deleteDoc, doc } from 'firebase/firestore';
+import { useState, useEffect } from "react";
+import { db } from "./firebase";
+import { query, collection, onSnapshot, addDoc, deleteDoc, doc } from "firebase/firestore";
 
 const App = () => {
-
-  const [notes, setNotes] = useState([
-  ]);
-
+  const [signedIn, setSignedIn] = useState(false);
+  const [notes, setNotes] = useState([]);
 
   // read notes
   useEffect(() => {
@@ -25,25 +23,29 @@ const App = () => {
     return () => unsubscribe;
   },[])
 
+  // add note
   const addNote = async (text) => {
-
     const date = new Date();
     const newNote = {
+      userid: nanoid(),
       text: text,
       date: date.toLocaleDateString()
     }
-
     await addDoc(collection(db, 'notes'), newNote)
-  }
+  };
 
+  // delete note
   const deleteNote = async (id) => {
     console.log(id);
     await deleteDoc(doc(db, 'notes', id))
-  }
+  };
 
   return (
     <div className='container'>
-      <Header />
+      <Header 
+        signedIn={signedIn}
+        setSignedIn={setSignedIn}
+      />
       <NotesList 
         notes={notes} 
         handleAddNote={addNote} 
@@ -51,6 +53,6 @@ const App = () => {
       />
     </div>
   )
-}
+};
 
 export default App;

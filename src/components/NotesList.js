@@ -20,6 +20,6 @@ const NotesList = ({ notes, handleAddNote, handleDeleteNote }) => {
             </Grid>
         </Grid>
     )
-}
+};
 
 export default NotesList;

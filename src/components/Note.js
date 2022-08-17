@@ -27,6 +27,6 @@ const Note = ({ note, text, date, handleDeleteNote }) => {
             </div>
         </Card>
     )
-}
+};
 
 export default Note;

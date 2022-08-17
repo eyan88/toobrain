@@ -12,8 +12,8 @@ const AddNote = ({ handleAddNote }) => {
     const handleSaveClick = () => {
         if(editorState.getCurrentContent().getPlainText().length > 0) {
             handleAddNote(editorState.getCurrentContent().getPlainText());
-        }
-    }
+        };
+    };
 
     return (
         <div className='note new'>
@@ -33,6 +33,6 @@ const AddNote = ({ handleAddNote }) => {
             </div>
         </div>
     )
-}
+};
 
 export default AddNote;
