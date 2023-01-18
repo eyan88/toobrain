@@ -4,7 +4,6 @@ import Header from "./components/Header";
 import Sidebar from "./components/Sidebar/Sidebar";
 import { nanoid } from 'nanoid';
 import { useState, useEffect } from "react";
-import { ClassNames } from "@emotion/react";
 
 const App = () => {
   // read notes
@@ -17,7 +16,7 @@ const App = () => {
     <>
       <div className="font-sans">
         <Header />
-        <div className="p-6 min-w-screen max-w-6xl container bg-new-slate h-screen">
+        <div className="p-6 h-screen bg-new-slate dark:bg-slate-600 rounded-lg overflow-auto">
           <Sidebar></Sidebar>
           <NotesList />
         </div>
