@@ -1,8 +1,11 @@
-const Header = () => {
+import { Button } from "@mui/material";
+
+const Header = ( { signedIn, setSignedIn } ) => {
+
     return (
-        <div className='header-container'>
-            <h1>TooBrain</h1>
-        </div>
+        <>
+            <h1 className="text-xl font-bold p-6">Projects</h1>
+        </>
     )
 }
 
