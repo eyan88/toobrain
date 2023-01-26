@@ -17,7 +17,7 @@ const App = () => {
       <div className="font-sans">
         <Header />
         <div className="p-6 h-screen bg-new-slate dark:bg-slate-600 rounded-lg overflow-auto">
-          <Sidebar></Sidebar>
+          <Sidebar> </Sidebar>
           <NotesList />
         </div>
       </div>
