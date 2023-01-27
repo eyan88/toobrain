@@ -6,9 +6,12 @@ module.exports = {
     extend: {
       colors: {
         'new-slate': '#f8fafb',
+        'dark-slate': '#0f172a',
       }
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/forms'),
+  ],
   darkMode: 'class'
 }

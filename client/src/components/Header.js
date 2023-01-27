@@ -1,16 +1,19 @@
-import { ComputerDesktopIcon, PlusCircleIcon } from "@heroicons/react/24/outline";
+import { PlusCircleIcon } from '@heroicons/react/24/outline';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
 
     return (
-        <>
-            <div className="flex flex-row content-center justify-between items-center p-2">
-                <h1 className="text-xl font-bold p-6 dark:text-slate-400 dark:bg-slate-800">Projects</h1>
-                <button>
-                    <PlusCircleIcon className="transition duration-100 h-8 w-8 content-center hover:scale-110">New Note</PlusCircleIcon>
-                </button>
+        <header>
+            <div className='flex flex-row content-center dark:text-slate-200 dark:bg-slate-800 justify-between items-center'>
+                <h1 className='text-xl font-bold p-6 dark:text-slate-200 dark:bg-slate-800'>
+                    <Link to='/'>Too Brain</Link>
+                </h1>
+                <Link to='/create'>
+                    <PlusCircleIcon className='transition duration-100 h-8 w-8 content-center hover:scale-110'></PlusCircleIcon>
+                </Link>
             </div>
-        </>
+        </header>
     )
 }
 

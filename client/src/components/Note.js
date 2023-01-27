@@ -10,9 +10,9 @@ const Note = () => {
                 initial={{ opacity: 0, scale: 1 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 0.5 }}>
-                <div className="p-4 bg-white dark:bg-slate-800 rounded-lg h-60 w-60 flex flex-col">
+                <div className="p-4 bg-white dark:bg-slate-800 rounded-lg h-60 w-60 flex flex-col drop-shadow-md">
                     <div className="flex flex-row items-center">
-                        <h2 className="basis-5/6 text-lg font-bold dark:text-slate-400">
+                        <h2 className="basis-5/6 text-lg font-bold dark:text-slate-200">
                             note title
                         </h2>
                         <button>
