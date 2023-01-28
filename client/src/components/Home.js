@@ -2,14 +2,12 @@ import Note from './Note';
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
-const MOCK_URI = ''
-
 const Home = () => {
     const [notes, setNotes] = useState([]);
 
     const getNotes = async () => {
         try {
-            await fetch(`${MOCK_URI}/api/notes`, {
+            await fetch(`${process.env.REACT_APP_MOCK_URI}/api/notes`, {
                 method: 'GET',
             })
                 .then((response) => response.json())

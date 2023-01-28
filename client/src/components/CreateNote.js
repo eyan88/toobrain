@@ -3,8 +3,6 @@ import { EditorState } from 'draft-js';
 import 'draft-js/dist/Draft.css';
 import { motion } from "framer-motion";
 
-const MOCK_URI = ''
-
 const CreateNote = () => {
     const [note, setNote] = useState({
         title: "",
@@ -24,7 +22,7 @@ const CreateNote = () => {
             };
 
             // post to api
-            await fetch(`${MOCK_URI}/api/notes`, {
+            await fetch(`${process.env.REACT_APP_MOCK_URI}/api/notes`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
