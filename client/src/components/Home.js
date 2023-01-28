@@ -34,7 +34,7 @@ const Home = () => {
 
     return (
         <>
-            <div className='p-6 grid grid-cols-1 gap-2 overflow-auto md:grid-cols-2 md:gap-5 lg:grid-cols-6 lg:gap-5'>
+            <div className='p-6 grid grid-cols-1 gap-2 overflow-auto md:grid-cols-2 md:gap-5 lg:grid-cols-5 lg:gap-4'>
                 {notes.map((note) => (
                     <Note
                         key={note.id}

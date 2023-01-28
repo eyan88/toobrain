@@ -19,7 +19,7 @@ const Note = ({ title, content }) => {
                             <TrashIcon className="basis-1/6 transition duration-300 h-4 w-4 text-neutral-500 dark:text-neutral-400 hover:text-red-600 hover:dark:text-red-500"></TrashIcon>
                         </button>
                     </div>
-                    <p className="text-sm dark:text-slate-400">
+                    <p className="text-sm dark:text-slate-400 overflow-auto">
                         {content}
                     </p>
                 </div>
