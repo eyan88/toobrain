@@ -1,7 +1,7 @@
 import { TrashIcon } from "@heroicons/react/24/outline";
 import { motion } from "framer-motion";
 
-const Note = () => {
+const Note = ({ title, content }) => {
 
     return (
         <>
