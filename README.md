@@ -2,8 +2,10 @@
 
 ## Intro
 
-Too Brain is a full stack notes app which I built to learn the MERN stack. I used Tailwind to style the minimalistic UI
-and implemented authentication with JWT so users can register/login to store their notes.
+Too Brain is a full stack notes app which I built to learn MongoDB, Express, React, and Node (MERN) stack. 
+I used Tailwind to style the minimalistic UI, also adding support for dark mode via a toggle switch. 
+For the backend, I implemented authentication with JWT so users can register/login to store their notes
+and used MongoDB for my database.
 
 ## Technologies used  
 * React.js
