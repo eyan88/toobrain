@@ -8,7 +8,7 @@ const Header = ({ darkMode, toggleDarkMode, isLoggedIn }) => {
 
     return (
         <header>
-            <div className='flex flex-row content-center dark:text-slate-200 dark:bg-slate-800 justify-between items-center min-w-min'>
+            <div className='flex flex-row content-center dark:text-slate-200 dark:bg-slate-800 justify-between items-center min-w-min border-b-2'>
                 <div className='flex flex-row items-center'>
                     <h1 className='text-xl font-bold p-6 dark:text-slate-200 dark:bg-slate-800'>
                         <Link to='/'>Too Brain</Link>

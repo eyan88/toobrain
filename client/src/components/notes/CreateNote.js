@@ -12,6 +12,7 @@ const CreateNote = () => {
     const createNote = async (e) => {
         e.preventDefault();
         try {
+            const token = localStorage.getItem('token');
             // destructure note from state variable
             const { title, content } = note;
 
@@ -22,9 +23,10 @@ const CreateNote = () => {
             };
 
             // post to api
-            await fetch(`${process.env.REACT_APP_MOCK_URI}/api/notes`, {
+            await fetch('http://localhost:8080/api/notes', {
                 method: 'POST',
                 headers: {
+                    'Authorization': token,
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify(newNote),
@@ -34,6 +36,7 @@ const CreateNote = () => {
                 .catch((err) => {
                     console.log(err)
                 });
+            alert('note saved');
         } catch (err) {
             console.error('Error:', err);
         }

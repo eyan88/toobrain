@@ -4,11 +4,15 @@ import { motion } from 'framer-motion';
 
 const Home = () => {
     const [notes, setNotes] = useState([]);
+    const [token, setToken] = useState('');
 
-    const getNotes = async () => {
+    const getNotes = async (token) => {
         try {
-            await fetch(`${process.env.REACT_APP_MOCK_URI}/api/notes`, {
+            const res = await fetch('http://localhost:8080/api/notes', {
                 method: 'GET',
+                headers: {
+                    'Authorization': token
+                }
             })
                 .then((response) => response.json())
                 .then((data) => {
@@ -29,7 +33,11 @@ const Home = () => {
     };
 
     useEffect(() => {
-        getNotes();
+        const token = localStorage.getItem('token');
+        setToken(token);
+        if (token) {
+            getNotes(token);
+        }
     }, []);
 
     return (

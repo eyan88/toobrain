@@ -2,7 +2,6 @@ import './index.css';
 import Header from './components/Header';
 import Login from './components/Login';
 import Notes from './components/Notes';
-import { Outlet, Routes, Route } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 
 const App = () => {
